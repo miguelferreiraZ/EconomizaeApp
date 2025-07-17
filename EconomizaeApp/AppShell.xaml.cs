@@ -1,10 +1,13 @@
-﻿namespace EconomizaeApp
+﻿using EconomizaeApp.MVVM.Views;
+
+namespace EconomizaeApp;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+
+        Routing.RegisterRoute(nameof(ResultadoView), typeof(ResultadoView));
     }
 }

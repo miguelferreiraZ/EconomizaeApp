@@ -7,7 +7,7 @@ public partial class EconomizaeView : ContentPage
 		InitializeComponent();
         Shell.SetNavBarIsVisible(this, false);
     }
-    private void OnCalcularClicked(object sender, EventArgs e)
+    private async void OnCalcularClicked(object sender, EventArgs e)
     {
         if (double.TryParse(valorEntry.Text, out double valorCompra) &&
             estadoPicker.SelectedItem is string estado)
@@ -23,17 +23,14 @@ public partial class EconomizaeView : ContentPage
 
             double economia = valorCompra * percentual;
 
-            valorCalculadoLabel.Text = $"R$ {economia:F2}";
-            resultadoFrame.IsVisible = true;
+            Preferences.Default.Set("Economia", economia);
+            Preferences.Default.Set("EstadoSelecionado", estado);
+
+            await Shell.Current.GoToAsync(nameof(ResultadoView));
         }
         else
         {
-            DisplayAlert("Erro", "Preencha todos os campos corretamente.", "OK");
+            await DisplayAlert("Erro", "Preencha todos os campos corretamente.", "OK");
         }
-    }
-
-    private void Button_Clicked(object sender, EventArgs e)
-    {
-
     }
 }

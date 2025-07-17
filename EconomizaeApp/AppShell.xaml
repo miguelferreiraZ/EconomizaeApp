@@ -5,6 +5,12 @@
     xmlns:views="clr-namespace:EconomizaeApp.MVVM.Views"
     x:Class="EconomizaeApp.AppShell">
 
-    <ShellContent Title="Início"
-                  ContentTemplate="{DataTemplate views:EconomizaeView}" />
+    <TabBar>
+        <ShellContent Title="Simulador"
+                      ContentTemplate="{DataTemplate views:EconomizaeView}"
+                      Route="Simulador" />
+
+        
+    </TabBar>
+
 </Shell>

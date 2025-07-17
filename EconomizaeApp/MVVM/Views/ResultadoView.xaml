@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EconomizaeApp.MVVM.Views.ResultadoView"
+             BackgroundColor="#72C6EA"
+             Title="Resultado"
+             Shell.NavBarIsVisible="False">
+
+    <VerticalStackLayout Padding="20" Spacing="25">
+
+        <Image Source="nf.jpg"
+               HeightRequest="120"
+               WidthRequest="120"
+               HorizontalOptions="Center" />
+
+        <Frame CornerRadius="20"
+               BackgroundColor="#364D5B"
+               Padding="20"
+               HasShadow="True">
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Você pode economizar:"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center" />
+
+                <Label x:Name="valorCalculadoLabel"
+                       Text="R$ 0,00"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="Aqua"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <Label Text="Deseja recuperar seu crédito fiscal?"
+               FontSize="18"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="Black" />
+
+        <Button Text="Acessar site oficial do seu estado"
+                Clicked="OnAbrirSiteClicked"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="12"
+                HeightRequest="50" />
+
+    </VerticalStackLayout>
+</ContentPage>
