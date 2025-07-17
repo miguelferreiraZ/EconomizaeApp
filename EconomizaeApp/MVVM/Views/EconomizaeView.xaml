@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EconomizaeApp.MVVM.Views.EconomizaeView"
+             >
+
+    <FlexLayout
+        Direction="Column"
+        JustifyContent="SpaceEvenly" 
+        BackgroundColor="#72C6EA"
+        >
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Frame Padding="0"
+                   HasShadow="False"
+                   CornerRadius="20"
+                   HeightRequest="120"
+                   WidthRequest="120"
+                   IsClippedToBounds="True"
+                   BorderColor="white">
+                <Image Source="nf.jpg"
+                       HeightRequest="120"
+                       WidthRequest="120"/>
+            </Frame>
+        </HorizontalStackLayout>
+
+
+        <Frame CornerRadius="20" Margin="10"
+               BackgroundColor="#61A8C6" BorderColor="#72C6EA">
+            <StackLayout Spacing="15">
+                <Label Text="Digite o valor da NF" 
+                       FontSize="25"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       />
+                <Entry x:Name="valorEntry"
+                       Placeholder="R$ 0,00" PlaceholderColor="#364D5B"
+                       Keyboard="Numeric" />
+            </StackLayout>
+        </Frame>
+        <Picker x:Name="estadoPicker" Title="Selecione o estado" Margin="10" 
+                TitleColor="white" 
+                BackgroundColor="#61A8C6">
+            <Picker.Items>
+                <x:String>SP</x:String>
+                <x:String>RJ</x:String>
+                <x:String>MG</x:String>
+                <x:String>ES</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Button Text="Calcular"
+                BackgroundColor="#364D5B"
+                TextColor="White" 
+                Margin="10"
+                Clicked="OnCalcularClicked"/>
+
+        <Frame CornerRadius="20"
+               Margin="10"
+               Padding="20"
+               BackgroundColor="#364D5B"
+               HasShadow="True"
+               x:Name="resultadoFrame"
+               IsVisible="False">
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Você pode economizar:"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       TextColor="White"
+                       HorizontalOptions="Center" />
+
+                <Label x:Name="valorCalculadoLabel"
+                       Text="R$ 0,00"
+                       FontSize="30"
+                       FontAttributes="Bold"
+                       TextColor="Aqua"
+                       HorizontalOptions="Center" />
+            </VerticalStackLayout>
+        </Frame>
+
+    </FlexLayout>
+
+</ContentPage>
